@@ -1,5 +1,6 @@
-package com.walkly.walkly.ui.dashboard
+package com.walkly.walkly.ui.home
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,22 +11,28 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.walkly.walkly.R
 
-class DashboardFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+@SuppressLint("Registered")
+class MapFragment : Fragment() {
+
+    private lateinit var mapViewModel: MapViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-            ViewModelProviders.of(this).get(DashboardViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(this, Observer {
+        mapViewModel =
+            ViewModelProviders.of(this).get(MapViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_map, container, false)
+        val textView: TextView = root.findViewById(R.id.text_notifications)
+        mapViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root
     }
+
+
+
+
 }

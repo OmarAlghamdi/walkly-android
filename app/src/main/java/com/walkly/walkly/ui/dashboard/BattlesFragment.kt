@@ -1,4 +1,4 @@
-package com.walkly.walkly.ui.notifications
+package com.walkly.walkly.ui.dashboard
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.walkly.walkly.R
 
-class NotificationsFragment : Fragment() {
+class BattlesFragment : Fragment() {
 
-    private lateinit var notificationsViewModel: NotificationsViewModel
+    private lateinit var battlesViewModel: BattlesViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        notificationsViewModel =
-            ViewModelProviders.of(this).get(NotificationsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_notifications, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
-        notificationsViewModel.text.observe(this, Observer {
+        battlesViewModel =
+            ViewModelProviders.of(this).get(BattlesViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_battkes, container, false)
+        val textView: TextView = root.findViewById(R.id.text_dashboard)
+        battlesViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root
