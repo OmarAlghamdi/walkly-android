@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.walkly.walkly.ui.home.MapFragment"
+        android:name="com.walkly.walkly.ui.map.MapFragment"
         android:label="@string/title_map"
         tools:layout="@layout/fragment_map" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.walkly.walkly.ui.dashboard.BattlesFragment"
+        android:name="com.walkly.walkly.ui.battles.BattlesFragment"
         android:label="@string/title_battles"
-        tools:layout="@layout/fragment_battkes" />
+        tools:layout="@layout/fragment_battles" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.walkly.walkly.ui.notifications.ProfileFragment"
+        android:name="com.walkly.walkly.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>
