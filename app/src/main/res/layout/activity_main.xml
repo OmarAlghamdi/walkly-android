@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="?attr/actionBarSize"
-    android:background="@drawable/gradient">
+    android:paddingTop="?attr/actionBarSize">
+
 
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="0dp"
         android:layout_height="611dp"
-        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/nav_host_fragment" >
@@ -23,7 +23,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintBottom_toTopOf="@id/nav_view"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btn_map"
         android:background="@drawable/btn_nav"
@@ -38,9 +38,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintBottom_toTopOf="@id/nav_view"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/btn_battles"
-        app:layout_constraintEnd_toStartOf="@id/bt_profile"
+        app:layout_constraintEnd_toStartOf="@id/btn_profile"
         android:background="@drawable/btn_nav"
         android:textColor="#8AFFFFFF"
         android:drawableTop="@drawable/ic_profile"
@@ -49,11 +49,11 @@
         android:text="Map"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/bt_profile"
+        android:id="@+id/btn_profile"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintBottom_toTopOf="@id/nav_view"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/btn_map"
         app:layout_constraintEnd_toEndOf="parent"
         android:background="@drawable/btn_nav"
@@ -63,16 +63,16 @@
         android:textAllCaps="false"
         android:text="Profile"/>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/nav_view"
-        style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:itemBackground="@drawable/inverted_gradient"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
+<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:id="@+id/nav_view"-->
+<!--        style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:itemBackground="@drawable/inverted_gradient"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:menu="@menu/bottom_nav_menu" />-->
 
     <fragment
         android:id="@+id/nav_host_fragment"
@@ -80,7 +80,7 @@
         android:layout_width="405dp"
         android:layout_height="611dp"
         app:defaultNavHost="true"
-        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
