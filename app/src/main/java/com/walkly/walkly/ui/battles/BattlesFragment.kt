@@ -1,6 +1,5 @@
-package com.walkly.walkly.ui.home
+package com.walkly.walkly.ui.battles
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,28 +10,22 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.walkly.walkly.R
 
+class BattlesFragment : Fragment() {
 
-@SuppressLint("Registered")
-class MapFragment : Fragment() {
-
-    private lateinit var mapViewModel: MapViewModel
+    private lateinit var battlesViewModel: BattlesViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mapViewModel =
-            ViewModelProviders.of(this).get(MapViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_map, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
-        mapViewModel.text.observe(this, Observer {
+        battlesViewModel =
+            ViewModelProviders.of(this).get(BattlesViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_battles, container, false)
+        val textView: TextView = root.findViewById(R.id.text_dashboard)
+        battlesViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root
     }
-
-
-
-
 }

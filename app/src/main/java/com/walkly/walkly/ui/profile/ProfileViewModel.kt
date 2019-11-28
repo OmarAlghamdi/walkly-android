@@ -1,4 +1,4 @@
-package com.walkly.walkly.ui.notifications
+package com.walkly.walkly.ui.profile
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
