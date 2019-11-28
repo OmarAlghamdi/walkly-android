@@ -2,6 +2,7 @@ package com.walkly.walkly
 
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.Rect
 import android.location.Location
 import android.os.Build
 import android.os.Bundle
@@ -88,8 +89,8 @@ class MainActivity : AppCompatActivity(){
             btn_battles.setTextColor(SOLID_WHITE)
             btn_battles.compoundDrawableTintList = ColorStateList.valueOf(SOLID_WHITE)
             // set other colors to half transparent white
-            btn_map.setTextColor(WHITE)
-            btn_map.compoundDrawableTintList = ColorStateList.valueOf(WHITE)
+            btn_profile.setTextColor(WHITE)
+            btn_profile.compoundDrawableTintList = ColorStateList.valueOf(WHITE)
             btn_map.setTextColor(WHITE)
             btn_map.compoundDrawableTintList = ColorStateList.valueOf(WHITE)
         }
