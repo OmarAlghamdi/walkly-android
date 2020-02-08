@@ -33,12 +33,18 @@ class Enemy(id: String) {
                 damage.value = it.data?.get("damage") as Long
                 level.value = it.data?.get("level") as Long
             }
-
     }
 
     companion object {
         fun generateRandomEnemies(): Array<Enemy>{
-
+            var enmies = emptyArray<String>()
+            val firestore = FirebaseFirestore.getInstance().also {
+                it.firestoreSettings = FirebaseFirestoreSettings.Builder()
+                    .setPersistenceEnabled(true)
+                    .build()
+            }
+            val enemyRef = firestore.collection("enemies")
+            enemyRef.get().addOnSuccessListener {it.documents[0]}
             // NOT RANDOM
             var enemy1 = Enemy("5xweqqy2u76aYHhVBiSQ")
             var enemy2 = Enemy("eMrAhRisPQ30qgovteS2")

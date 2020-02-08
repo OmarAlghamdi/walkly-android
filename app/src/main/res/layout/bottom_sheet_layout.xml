@@ -14,15 +14,26 @@
     android:background="#FFFFFF"
     >
 
+<<<<<<< Updated upstream
 
     <ImageView
         android:id="@+id/bottom_sheet_imageView"
+=======
+    <LinearLayout
+        android:id="@+id/linlyaout"
+>>>>>>> Stashed changes
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@mipmap/ic_launcher" />
 
+<<<<<<< Updated upstream
     <TextView
         android:id="@+id/bottom_sheet_text"
+=======
+
+    </LinearLayout>
+    <LinearLayout
+>>>>>>> Stashed changes
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Battle Title"
