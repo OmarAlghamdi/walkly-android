@@ -136,6 +136,10 @@ class MapFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
             mapboxMap.addOnCameraMoveListener {
 <<<<<<< Updated upstream
                 Log.d("mapchange:", "onCameraMove")
+<<<<<<< Updated upstream
+=======
+                symbolManager.deleteAll()
+>>>>>>> Stashed changes
 =======
                 symbolManager.deleteAll()
 >>>>>>> Stashed changes
