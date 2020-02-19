@@ -8,11 +8,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.view.inputmethod.EditorInfo
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
@@ -137,10 +134,14 @@ class FriendsFragment : Fragment() {
                             .document(friend.id).collection("friends").document(userID!!).set(
                                 hashMapOf("status" to "friend")
                             )
+                        Toast.makeText(activity!!.applicationContext, "Friend request accepted", Toast.LENGTH_LONG).show()
+
                     }
                     btnReject.visibility = View.VISIBLE
                     btnReject.setOnClickListener { db.collection("users")
-                        .document(userID!!).collection("friends").document(friend.id).delete() }
+                        .document(userID!!).collection("friends").document(friend.id).delete()
+                        Toast.makeText(activity!!.applicationContext, "Friend request rejected", Toast.LENGTH_LONG).show()
+                    }
 
                 } else if(friend.status ==""){
                     btnAdd.visibility = View.VISIBLE
@@ -149,6 +150,7 @@ class FriendsFragment : Fragment() {
                             .document(friend.id).collection("friends").document(userID!!).set(
                                 hashMapOf("status" to "pending")
                             )
+                        Toast.makeText(activity!!.applicationContext, "Friend request sent", Toast.LENGTH_LONG).show()
                     }
                 }
             }
@@ -157,8 +159,6 @@ class FriendsFragment : Fragment() {
     }
 
     private fun addFriend(friendId: String){
-        db.collection("users")
-            .document(userID!!).collection("friends").document(friendId).update("status", "friend")
     }
 
 }
