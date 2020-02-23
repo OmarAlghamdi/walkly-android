@@ -123,37 +123,7 @@ class FriendsFragment : Fragment() {
                 friendImage.setImageResource(R.drawable.fui_ic_anonymous_white_24dp)
                 friendName.text = friend.name
                 friendLevel.text = "Level: " + friend.level.toString()
-
-                // refactor later, add listners to buttons and display buttons for pending requests
-//                if(friend.status == "pending"){
-//                    btnAccept.visibility = View.VISIBLE
-//                    btnAccept.setOnClickListener{
-//                        db.collection("users")
-//                            .document(userID!!).collection("friends").document(friend.id).update("status", "friend")
-//                        db.collection("users")
-//                            .document(friend.id).collection("friends").document(userID!!).set(
-//                                hashMapOf("status" to "friend")
-//                            )
-//                    Toast.makeText(activity!!.applicationContext, "Friend request accepted", Toast.LENGTH_LONG).show()
-//                    }
-//                    btnReject.visibility = View.VISIBLE
-//                    btnReject.setOnClickListener { db.collection("users")
-//                        .document(userID!!).collection("friends").document(friend.id).delete()
-//                        Toast.makeText(activity!!.applicationContext, "Friend request rejected", Toast.LENGTH_LONG).show()
-//                    }
-//
-//                } else if(friend.status ==""){
-//                    btnAdd.visibility = View.VISIBLE
-//                    btnAdd.setOnClickListener {
-//                        db.collection("users")
-//                            .document(friend.id).collection("friends").document(userID!!).set(
-//                                hashMapOf("status" to "pending")
-//                            )
-//                        Toast.makeText(activity!!.applicationContext, "Friend request sent", Toast.LENGTH_LONG).show()
-//                    }
-//                }
                 friendsViewModel.addFriend(userID!!, friend.id, friend.status, btnAdd, btnAccept, btnReject)
-
             }
         }
 

@@ -139,7 +139,7 @@ class FriendsViewModel : ViewModel() {
                     .document(friendID).collection("friends").document(userID!!).set(
                         hashMapOf("status" to "pending")
                     )
-//                Toast.makeText(activity!!.applicationContext, "Friend request sent", Toast.LENGTH_LONG).show()
+//                Toast.makeText(applicationContext, "Friend request sent", Toast.LENGTH_LONG).show()
             }
         }
     }
