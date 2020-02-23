@@ -1,6 +1,9 @@
 package com.walkly.walkly.ui.profile
 
 import android.util.Log
+import android.view.View
+import android.widget.Button
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -110,5 +113,34 @@ class FriendsViewModel : ViewModel() {
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents: ", exception)
             }
+    }
+    fun addFriend(userID: String, friendID: String, friendStatus: String, btnAdd: Button, btnAccept: Button, btnReject: Button){
+        if(friendStatus == "pending"){
+            btnAccept.visibility = View.VISIBLE
+            btnAccept.setOnClickListener{
+                db.collection("users")
+                    .document(userID!!).collection("friends").document(friendID).update("status", "friend")
+                db.collection("users")
+                    .document(friendID).collection("friends").document(userID!!).set(
+                        hashMapOf("status" to "friend")
+                    )
+//                Toast.makeText(activity!!.applicationContext, "Friend request accepted", Toast.LENGTH_LONG).show()
+            }
+            btnReject.visibility = View.VISIBLE
+            btnReject.setOnClickListener { db.collection("users")
+                .document(userID!!).collection("friends").document(friendID).delete()
+//                Toast.makeText(activity!!.applicationContext, "Friend request rejected", Toast.LENGTH_LONG).show()
+            }
+
+        } else if(friendStatus ==""){
+            btnAdd.visibility = View.VISIBLE
+            btnAdd.setOnClickListener {
+                db.collection("users")
+                    .document(friendID).collection("friends").document(userID!!).set(
+                        hashMapOf("status" to "pending")
+                    )
+//                Toast.makeText(activity!!.applicationContext, "Friend request sent", Toast.LENGTH_LONG).show()
+            }
+        }
     }
 }
