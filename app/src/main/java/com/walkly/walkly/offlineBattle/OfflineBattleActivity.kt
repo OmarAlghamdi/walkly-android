@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.walkly.walkly.MainActivity
 import com.walkly.walkly.R
 import com.walkly.walkly.models.Enemy
@@ -86,8 +87,10 @@ class OfflineBattle : AppCompatActivity() {
         })
 
         viewModel.enemyImage.observe(this, Observer {
-            val imagename = "boss" + bundle.getString("enemyId")
-            boss_bitmoji.setImageResource(resources.getIdentifier(imagename,"drawable",  this.packageName))
+            Glide.with(this)
+                .load(it)
+                .diskCacheStrategy(DiskCacheStrategy.DATA)
+                .into(boss_bitmoji)
         })
 
         // NOTE TESTED
